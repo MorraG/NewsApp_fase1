@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/TitleView"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/paddingOrMar_XS"
+        android:background="@color/ItemSeparator" />
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        style="@style/CardViewStyle"
+        card_view:cardBackgroundColor="@color/card_background"
+        card_view:cardCornerRadius="@dimen/paddingOrMar_M">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="6">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/CardTitleStyle"
+                tools:text="@string/tools_title" />
+
+            <TextView
+                android:id="@+id/link"
+                style="@style/CardLinkStyle"
+                android:autoLink="web"
+                tools:text="@string/tools_link" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date"
+                    style="@style/CardDateStyle"
+                    tools:text="@string/tools_date" />
+
+                <TextView
+                    android:id="@+id/section"
+                    style="@style/CardSectionStyle"
+                    tools:text="@string/tools_section" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/author"
+                style="@style/CardAuthorStyle"
+                tools:text="@string/tools_author" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

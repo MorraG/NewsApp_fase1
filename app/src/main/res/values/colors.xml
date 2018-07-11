@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+//other color
+    <color name="section">#6AC626</color>
+    <color name="title">#4C5B61</color>
+    <color name="link">#1551c3</color>
+    <color name="date">#820B8A</color>
+    <color name="author">#ff2821</color>
+    <color name="ItemSeparator">#000000</color>
+
+    <color name="TitleView">#FFFF</color>
+    <color name="tan_background">#d4eef6</color>
+    <color name="card_background">#e4ecff</color>
+</resources>

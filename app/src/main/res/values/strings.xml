@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NewsApp_fase1</string>
+    <string name="action_settings">Settings</string>
+
+    <!--ToolsString-->
+    <string name="tools_title">Title</string>
+    <string name="tools_link">Link</string>
+    <string name="tools_section">Section</string>
+    <string name="tools_date">date</string>
+    <string name="tools_author">author</string>
+
+    <string name="refresh_button">Refresh</string>
+    <string name="no_news">No articles found, please reload the app or check after some time</string>
+    <string name="search_hint">Enter search terms here...</string>
+    <string name="no_internet">No internet connection.</string>
+    <string name="title">Recent Guardian articles about Films &amp; Cinema:</string>
+
+
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Cinema &amp; Film Settings</string>
+</resources>
