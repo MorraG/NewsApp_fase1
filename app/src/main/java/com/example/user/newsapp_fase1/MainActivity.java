@@ -70,6 +70,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //linking adapter to listview
         newsListView.setAdapter(mAdapter);
 
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                News currentNews = newsArray.get(position);
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(currentNews.getmLink()));
+                startActivity(browserIntent);
+            }
+
+
+        });
+
 
         // Get a reference to the LoaderManager, in order to interact with loaders.
         loaderManager = getLoaderManager();

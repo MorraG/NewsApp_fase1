@@ -154,7 +154,7 @@ public class QueryUtils {
                 String title = currentNews.getString("webTitle");
                 String url = currentNews.getString("webUrl");
                 String time = "";
-                String author = "";
+                String author = currentNews. getString("tags");
                 String section = currentNews.getString("sectionName");
                 if (currentNews.has("webPublicationDate")) {
                     try {
@@ -165,7 +165,7 @@ public class QueryUtils {
                 }
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 Date date = new Date();
                 try {
                     date = format.parse(time);
@@ -184,7 +184,7 @@ public class QueryUtils {
                     JSONObject findedAuthor = newsArray2.getJSONObject(j);
                     String author = findedAuthor.getString("WebTitle");
                 }
-            }*/
+             }*/
 
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,

@@ -34,7 +34,6 @@
             <TextView
                 android:id="@+id/link"
                 style="@style/CardLinkStyle"
-                android:autoLink="web"
                 tools:text="@string/tools_link" />
 
             <LinearLayout
