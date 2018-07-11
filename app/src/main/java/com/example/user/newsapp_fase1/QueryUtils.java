@@ -148,7 +148,7 @@ public class QueryUtils {
             JSONObject response = baseJsonResponse.getJSONObject("response");
             JSONArray newsArray = response.getJSONArray("results");
 
-//TODO DOSTOSOWAC JSON DO POTRZEB GUARDIAN
+
             for (int i = 0; i < newsArray.length(); i++) {
                 JSONObject currentNews = newsArray.getJSONObject(i);
                 String title = currentNews.getString("webTitle");
@@ -174,7 +174,7 @@ public class QueryUtils {
                 }
                 String finalTime = format1.format(date);
 
-                News news = new News(title, url, finalTime, section,author);
+                News news = new News(title, url, finalTime, section, author);
                 newsList.add(news);
             }
             /*for (int i = 0; i < newsArray.length(); i++) {
