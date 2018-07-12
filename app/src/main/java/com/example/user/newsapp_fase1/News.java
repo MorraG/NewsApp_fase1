@@ -1,15 +1,13 @@
 package com.example.user.newsapp_fase1;
 
-import java.util.List;
-
 public class News {
     private String mTitle;
     private String mLink;
     private String mDate;
     private String mSection;
-    private List<String> mAuthor;
+    private String mAuthor;
 
-    public News(String title, String link, String date, String section, List<String> author){
+    public News(String title, String link, String date, String section, String author){
         mTitle = title;
         mLink = link;
         mDate = date;
@@ -32,7 +30,7 @@ public class News {
     public String getmSection() {
         return mSection;
     }
-    public List<String> getAuthor() {
+    public String getAuthor() {
         return mAuthor;
     }
 }

@@ -20,7 +20,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Igor on 2017-07-05.
@@ -176,17 +175,18 @@ public class QueryUtils {
                 String finalTime = format1.format(date);
 
                 JSONArray tags = currentNews.getJSONArray("tags");
-                List<String> authorStrings = new ArrayList<>();
-                if(tags.length() > 0){
-                    for (int k = 0; k < tags.length(); k++) {
-                        JSONObject object = tags.getJSONObject(k);
-                        String author = object.getString("webTitle");
-                        authorStrings.add(author);
-                    }
-
+                String author;
+                String authorName="";
+//                List<String> authorStrings = new ArrayList<>();
+                for (int k = 0; k < tags.length(); k++) {
+                    JSONObject object = tags.getJSONObject(k);
+                    author = object.getString("webTitle");
+                    authorName="/"+ author;
                 }
 
-                News news = new News(title, url, finalTime, section, authorStrings);
+
+
+                News news = new News(title, url, finalTime, section, authorName);
                 newsList.add(news);
             }
 
