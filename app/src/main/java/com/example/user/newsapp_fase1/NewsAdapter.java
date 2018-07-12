@@ -41,7 +41,7 @@ public class NewsAdapter extends ArrayAdapter<News>{
         sectionView.setText(currentNews.getmSection());
 
         if (currentNews.getAuthor() != null) {
-            authorView.setText(currentNews.getAuthor());
+            authorView.setText((CharSequence) currentNews.getAuthor());
         }
 
         return listView;

@@ -20,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Igor on 2017-07-05.
@@ -153,8 +154,8 @@ public class QueryUtils {
                 JSONObject currentNews = newsArray.getJSONObject(i);
                 String title = currentNews.getString("webTitle");
                 String url = currentNews.getString("webUrl");
-                String time = "";
-                String author = currentNews. getString("tags");
+                String time = currentNews.getString("webPublicationDate");
+
                 String section = currentNews.getString("sectionName");
                 if (currentNews.has("webPublicationDate")) {
                     try {
@@ -165,7 +166,7 @@ public class QueryUtils {
                 }
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date = new Date();
                 try {
                     date = format.parse(time);
@@ -174,17 +175,21 @@ public class QueryUtils {
                 }
                 String finalTime = format1.format(date);
 
-                News news = new News(title, url, finalTime, section, author);
+                JSONArray tags = currentNews.getJSONArray("tags");
+                List<String> authorStrings = new ArrayList<>();
+                if(tags.length() > 0){
+                    for (int k = 0; k < tags.length(); k++) {
+                        JSONObject object = tags.getJSONObject(k);
+                        String author = object.getString("webTitle");
+                        authorStrings.add(author);
+                    }
+
+                }
+
+                News news = new News(title, url, finalTime, section, authorStrings);
                 newsList.add(news);
             }
-            /*for (int i = 0; i < newsArray.length(); i++) {
-                JSONObject pippo = newsArray.getJSONObject(i);
-                JSONArray newsArray2 = pippo.getJSONArray("tags");
-                for (int j = 0; j < newsArray2.length(); i++) {
-                    JSONObject findedAuthor = newsArray2.getJSONObject(j);
-                    String author = findedAuthor.getString("WebTitle");
-                }
-             }*/
+
 
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,

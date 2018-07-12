@@ -34,13 +34,13 @@
         <item name="android:textColor">@color/title</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">2</item>
+        <item name="android:layout_weight">1.5</item>
     </style>
 
     <style name="CardLinkStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">2</item>
+        <item name="android:layout_weight">1.2</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:gravity">top|center</item>
         <item name="android:textColor">@color/link</item>
@@ -48,7 +48,7 @@
 
     <style name="CardDateStyle">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">1.1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/date</item>
         <item name="android:textStyle">italic</item>
@@ -59,7 +59,7 @@
 
     <style name="CardSectionStyle">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_weight">1.1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">textEnd</item>
         <item name="android:layout_marginRight">@dimen/paddingOrMar_S</item>
@@ -71,7 +71,7 @@
     <style name="CardAuthorStyle">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">0dp</item>
-    <item name="android:layout_weight">1</item>
+    <item name="android:layout_weight">1.2</item>
 
     <item name="android:textAlignment">center</item>
     <item name="android:textColor">@color/author</item>
