@@ -14,6 +14,5 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public static class NewsPreferenceFragment extends PreferenceFragment {
-
     }
 }
