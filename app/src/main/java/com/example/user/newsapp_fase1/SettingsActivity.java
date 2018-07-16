@@ -22,8 +22,8 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
-            Preference oldest = findPreference(getString(R.string.settings_order_by_key));
-            bindPreferenceSummaryToValue(oldest);
+            Preference orderby = findPreference(getString(R.string.settings_order_by_key));
+            bindPreferenceSummaryToValue(orderby);
         }
 
         @Override
@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
         //Helper method to retireve the label from the selected value
         private String getLabelGivenValue(String value) {
-            String result = "All Sections";
+            String result = "All News";
             String values[] = getResources().getStringArray(R.array.settings_order_by_values);
             for (int i = 0; i < values.length; i++) {
                 if (value.equals(values[i])) {
