@@ -30,6 +30,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
     // article OPERATION_URL_EXTRA And OPERATION_SEARCH_LOADER
     private static String REQUEST_URL = "https://content.guardianapis.com/search?section=film&order-by=newest&&show-tags=contributor&q=cinema&api-key=4f03c7ba-df38-456a-9c29-ca693c79622b";
+    private static String REQUEST_URLoldest = "https://content.guardianapis.com/search?section=film&order-by=oldest&&show-tags=contributor&q=cinema&api-key=4f03c7ba-df38-456a-9c29-ca693c79622b";
+
     boolean isConnected;
     @BindView(R.id.list)
     ListView newsListView;
@@ -37,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     TextView mEmptyStateTextView;
     @BindView(R.id.no_internet)
     TextView mNoInternetTextView;
+    private ProgressBar mProgressBar;
     private int NEWS_LOADER_ID = 1;
     private LoaderManager loaderManager;
     private NewsAdapter mAdapter;
-    private ProgressBar mProgressBar;
     private ConnectivityManager cm;
     private NetworkInfo activeNetwork;
 
@@ -147,6 +149,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
         return new NewsLoader(this, REQUEST_URL);
+
+    /*    SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+
+    */
     }
 
     @Override

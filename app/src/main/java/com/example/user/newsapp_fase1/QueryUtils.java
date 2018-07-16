@@ -177,14 +177,11 @@ public class QueryUtils {
                 JSONArray tags = currentNews.getJSONArray("tags");
                 String author;
                 String authorName="";
-//                List<String> authorStrings = new ArrayList<>();
                 for (int k = 0; k < tags.length(); k++) {
                     JSONObject object = tags.getJSONObject(k);
                     author = object.getString("webTitle");
                     authorName="/"+ author;
                 }
-
-
 
                 News news = new News(title, url, finalTime, section, authorName);
                 newsList.add(news);
