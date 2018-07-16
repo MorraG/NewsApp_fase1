@@ -22,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
-            Preference oldest = findPreference(getString(R.string.settings_order_by_oldest_value));
+            Preference oldest = findPreference(getString(R.string.settings_order_by_key));
             bindPreferenceSummaryToValue(oldest);
         }
 
