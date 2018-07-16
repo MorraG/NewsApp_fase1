@@ -10,7 +10,10 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+        addPreferencesFromResource(R.xml.settings_main);;
+    }
+
+    private void addPreferencesFromResource(int settings_main) {
     }
 
     public static class NewsPreferenceFragment extends PreferenceFragment {
