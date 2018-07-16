@@ -30,5 +30,5 @@
 
     <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
     <string name="settings_order_by_most_recent_label">Most Recent</string>
-    <string name="settings_order_by_most_recent_value" translatable="false">date</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
 </resources>

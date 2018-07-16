@@ -2,13 +2,16 @@ package com.example.user.newsapp_fase1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.LoaderManager;
 import android.content.Loader;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +32,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
     // article OPERATION_URL_EXTRA And OPERATION_SEARCH_LOADER
-    private static String REQUEST_URL = "https://content.guardianapis.com/search?section=film&order-by=newest&&show-tags=contributor&q=cinema&api-key=4f03c7ba-df38-456a-9c29-ca693c79622b";
+    private static String REQUEST_URL = "https://content.guardianapis.com/search?";
     private static String REQUEST_URLoldest = "https://content.guardianapis.com/search?section=film&order-by=oldest&&show-tags=contributor&q=cinema&api-key=4f03c7ba-df38-456a-9c29-ca693c79622b";
-
     boolean isConnected;
     @BindView(R.id.list)
     ListView newsListView;
@@ -148,17 +150,32 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
-        return new NewsLoader(this, REQUEST_URL);
 
-    /*    SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
+        String orderby = sharedPrefs.getString(getString(R.string.settings_order_by_oldest_value), getString(R.string.settings_order_by_most_recent_value));
 
 
-
-    */
+        //Composing the Url with additional data, such as the api key and required author and thumbnail
+        Uri baseUri = Uri.parse(REQUEST_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("section", "film");
+        uriBuilder.appendQueryParameter("api-key", "4f03c7ba-df38-456a-9c29-ca693c79622b");
+        if (!orderby.equals("newest")){
+            uriBuilder.appendQueryParameter("order-by", orderby);
+        }
+        // Create a new loader for the given URL
+        Log.e("MainActivity", "Loader created");
+        return new NewsLoader(this, uriBuilder.toString());
     }
+    //Model of the default url "https://content.guardianapis.com/search?section=film&order-by=newest&&show-tags=contributor&q=cinema&api-key=4f03c7ba-df38-456a-9c29-ca693c79622b";
+
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> news) {
+
 
         mAdapter.clear();
 
@@ -188,5 +205,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<List<News>> loader) {
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
+        Log.e("MainActivity", "Loader resetted");
     }
 }
