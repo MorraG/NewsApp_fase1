@@ -16,6 +16,12 @@ public class SettingsActivity extends AppCompatActivity {
     private void addPreferencesFromResource(int settings_main) {
     }
 
-    public static class NewsPreferenceFragment extends PreferenceFragment {
+    public static class NewsPreferenceFragment extends PreferenceFragment
+        implements Preference.OnPreferenceChangeListener {
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+            return  false;
+        }
     }
 }
